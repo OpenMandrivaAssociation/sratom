@@ -15,6 +15,7 @@ Group:          System/Libraries
 BuildRequires:  waf, pkgconfig
 BuildRequires:  glib2-devel
 BuildRequires:  serd-devel
+BuildRequires:  pkgconfig(lv2)
 
 %description
 Lightweight C library for storing RDF data in memory.
