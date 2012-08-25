@@ -1,5 +1,5 @@
 Name:           sratom
-Version:        0.2.0
+Version:        0.4.0
 Release:        %mkrel 1
 Summary:        Library for serialising LV2 atoms to/from RDF, particularly the Turtle syntax
 
