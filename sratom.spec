@@ -59,24 +59,9 @@ Development files needed to build applications against %{name}.
 %setup -q
 
 %build
+%setup_compile_flags
 ./waf configure --prefix=%{_prefix} --mandir=%{_mandir} --libdir=%{_libdir}
 ./waf
 
 %install
-rm -rf %{buildroot}
-
 ./waf install --destdir=%{buildroot}
-
-
-
-%changelog
-* Sat Aug 25 2012 Frank Kober <emuse@mandriva.org> 0.4.0-1mdv2012.0
-+ Revision: 815738
-- new version 0.4.0
-
-* Mon Apr 23 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.2.0-1
-+ Revision: 792904
-- BR:sord-devel
-- BR: lv2
-- imported package sratom
-
