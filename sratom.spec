@@ -1,19 +1,18 @@
-Name:           sratom
-Version:        0.4.0
-Release:        2
-Summary:        Library for serialising LV2 atoms to/from RDF, particularly the Turtle syntax
-
 %define lib_major       0
 %define lib_name        %mklibname %{name} %{lib_major}
 %define lib_name_devel  %mklibname %{name} -d
 
+Name:           sratom
+Version:        0.4.6
+Release:        2
+Summary:        Library for serialising LV2 atoms to/from RDF, particularly the Turtle syntax
 Source0:         http://download.drobilla.net/%{name}-%{version}.tar.bz2
 URL:            http://drobilla.net/software/%{name}/
 License:        MIT-like
 Group:          System/Libraries
 
 BuildRequires:  waf, pkgconfig
-BuildRequires:  glib2-devel
+BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  serd-devel
 BuildRequires:  sord-devel
 BuildRequires:  pkgconfig(lv2)
@@ -57,11 +56,12 @@ Development files needed to build applications against %{name}.
 #-----------------------------------
 %prep
 %setup -q
+sed -i -e 's/^.*run_ldconfig/#\0/' wscript
 
 %build
 %setup_compile_flags
-./waf configure --prefix=%{_prefix} --mandir=%{_mandir} --libdir=%{_libdir}
-./waf
+%{__python2} ./waf configure --prefix=%{_prefix} --mandir=%{_mandir} --libdir=%{_libdir}
+%{__python2} ./waf
 
 %install
-./waf install --destdir=%{buildroot}
+%{__python2} ./waf install --destdir=%{buildroot}
