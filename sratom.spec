@@ -4,7 +4,7 @@
 
 Name:           sratom
 Version:        0.4.6
-Release:        2
+Release:        3
 Summary:        Library for serialising LV2 atoms to/from RDF, particularly the Turtle syntax
 Source0:         http://download.drobilla.net/%{name}-%{version}.tar.bz2
 URL:            http://drobilla.net/software/%{name}/
