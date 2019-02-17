@@ -60,8 +60,8 @@ sed -i -e 's/^.*run_ldconfig/#\0/' wscript
 
 %build
 %setup_compile_flags
-%{__python2} ./waf configure --prefix=%{_prefix} --mandir=%{_mandir} --libdir=%{_libdir}
-%{__python2} ./waf
+python ./waf configure --prefix=%{_prefix} --mandir=%{_mandir} --libdir=%{_libdir}
+python ./waf
 
 %install
-%{__python2} ./waf install --destdir=%{buildroot}
+python ./waf install --destdir=%{buildroot}
