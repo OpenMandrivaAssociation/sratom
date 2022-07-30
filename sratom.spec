@@ -11,11 +11,13 @@ URL:            http://drobilla.net/software/%{name}/
 License:        MIT-like
 Group:          System/Libraries
 
+BuildRequires:  cmake
 BuildRequires:  waf, pkgconfig
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  serd-devel
 BuildRequires:  sord-devel
 BuildRequires:  pkgconfig(lv2)
+BuildRequires:  lv2
 BuildRequires:  meson
 BuildRequires:  doxygen
 BuildRequires:  python3dist(sphinx)
