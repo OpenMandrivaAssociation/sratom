@@ -3,19 +3,24 @@
 %define lib_name_devel  %mklibname %{name} -d
 
 Name:           sratom
-Version:	0.6.10
+Version:	0.6.12
 Release:	1
 Summary:        Library for serialising LV2 atoms to/from RDF, particularly the Turtle syntax
-Source0:         http://download.drobilla.net/%{name}-%{version}.tar.bz2
+Source0:         http://download.drobilla.net/%{name}-%{version}.tar.xz
 URL:            http://drobilla.net/software/%{name}/
 License:        MIT-like
 Group:          System/Libraries
 
+BuildRequires:  cmake
 BuildRequires:  waf, pkgconfig
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  serd-devel
 BuildRequires:  sord-devel
 BuildRequires:  pkgconfig(lv2)
+BuildRequires:  lv2
+BuildRequires:  meson
+BuildRequires:  doxygen
+BuildRequires:  python3dist(sphinx)
 
 %description
 Lightweight C library for storing RDF data in memory.
@@ -56,12 +61,10 @@ Development files needed to build applications against %{name}.
 #-----------------------------------
 %prep
 %setup -q
-sed -i -e 's/^.*run_ldconfig/#\0/' wscript
 
 %build
-%setup_compile_flags
-python ./waf configure --prefix=%{_prefix} --mandir=%{_mandir} --libdir=%{_libdir}
-python ./waf
+%meson -Ddocs=disabled
+%meson_build
 
 %install
-python ./waf install --destdir=%{buildroot}
+%meson_install
