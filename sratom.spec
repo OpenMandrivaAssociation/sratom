@@ -63,7 +63,7 @@ Development files needed to build applications against %{name}.
 %setup -q
 
 %build
-%meson
+%meson -Ddocs=false
 %meson_build
 
 %install
