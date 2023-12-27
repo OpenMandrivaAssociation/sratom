@@ -1,10 +1,11 @@
 %define lib_major       0
-%define lib_name        %mklibname %{name} %{lib_major}
+%define lib_name        %mklibname %{name}
+%define olslib_name        %mklibname %{name} 0
 %define lib_name_devel  %mklibname %{name} -d
 
 Name:           sratom
 Version:	0.6.16
-Release:	1
+Release:	2
 Summary:        Library for serialising LV2 atoms to/from RDF, particularly the Turtle syntax
 Source0:        https://download.drobilla.net/%{name}-%{version}.tar.xz
 URL:            https://drobilla.net/software/%{name}/
@@ -33,6 +34,7 @@ Lightweight C library for storing RDF data in memory.
 
 Summary:        Library for serialising LV2 atoms to/from RDF, particularly the Turtle syntax
 Group:          System/Libraries
+%rename %{olslib_name}
 
 %description -n %{lib_name}
 Lightweight C library for storing RDF data in memory.
