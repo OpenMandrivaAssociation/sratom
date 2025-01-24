@@ -4,8 +4,8 @@
 %define lib_name_devel  %mklibname %{name} -d
 
 Name:           sratom
-Version:	0.6.16
-Release:	2
+Version:	0.6.18
+Release:	1
 Summary:        Library for serialising LV2 atoms to/from RDF, particularly the Turtle syntax
 Source0:        https://download.drobilla.net/%{name}-%{version}.tar.xz
 URL:            https://drobilla.net/software/%{name}/
